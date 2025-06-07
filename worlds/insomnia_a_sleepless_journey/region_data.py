@@ -49,8 +49,8 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.star_r8c9_77: LData(LType.loc, loc_type=LocType.star),
         lname.star_r8c10_72: LData(LType.loc, [[iname.lubricant], [iname.fans], [iname.rocket_upg]], LocType.star),
         lname.star_r8c5_79: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r10c9_85: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r10c10_88: LData(LType.loc, loc_type=LocType.star),
+        lname.star_r10c9_85: LData(LType.loc, [[iname.key]], LocType.star),
+        lname.star_r10c10_88: LData(LType.loc, [[iname.key]], LocType.star),
 
         lname.turtle_r5c4: LData(LType.loc, loc_type=LocType.enemy),
         lname.turtle_r6c4: LData(LType.loc, loc_type=LocType.enemy),
@@ -67,7 +67,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.turtle_r7c10: LData(LType.loc, loc_type=LocType.enemy),
         lname.turtle_r8c9: LData(LType.loc, loc_type=LocType.enemy),
         lname.imp_r4c7: LData(LType.loc, loc_type=LocType.enemy),
-        lname.fakeblock_r10c9: LData(LType.loc, loc_type=LocType.enemy),
+        lname.fakeblock_r10c9: LData(LType.loc, [[iname.key]], LocType.enemy),
         lname.slime_r9c12: LData(LType.loc, loc_type=LocType.enemy),
         lname.turtle_r9c13: LData(LType.loc, loc_type=LocType.enemy),
         lname.apple_r4c8: LData(LType.loc, loc_type=LocType.enemy),
@@ -80,7 +80,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.spikeslime_r6c9: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
         lname.spiketurtle_r7c8: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
         lname.spiketurtle_r8c10: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
-        lname.spinner_r10c10: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
+        lname.spinner_r10c10: LData(LType.loc, [[iname.spike_kill, iname.key]], LocType.enemy),
 
         rname.tunnel: LData(LType.region, [[iname.fans], [iname.m_jump]]),
         rname.below_basement_door_2: LData(LType.region, [[iname.m_jump]]),
@@ -94,8 +94,8 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         rname.r_pack: LData(LType.region, [[iname.rocket_upg], [iname.fans]]),
         rname.near_switch: LData(LType.region, [[iname.m_jump]]),
         rname.basement: LData(LType.region, [[iname.helmet]]),
-        rname.heart_chest: LData(LType.region, [[iname.fans], [iname.rocket_upg]]),
-        rname.tennis_chest: LData(LType.region, [[iname.lubricant]]),
+        rname.heart_chest: LData(LType.region, [[iname.fans, iname.key], [iname.rocket_upg, iname.key]]),
+        rname.tennis_chest: LData(LType.region, [[iname.lubricant, iname.key]]),
     },
 
     rname.below_basement_door_2: {
@@ -173,19 +173,26 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.star_r3c2_28: LData(LType.loc, loc_type=LocType.star),
         lname.star_r2c3_9: LData(LType.loc, loc_type=LocType.star),
         lname.star_r1c3_0: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r1c10_4: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r2c10_11: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r3c10_23: LData(LType.loc, loc_type=LocType.star),
 
         lname.imp_r3c3: LData(LType.loc, loc_type=LocType.enemy),
         lname.eye_r2c3: LData(LType.loc, loc_type=LocType.enemy),
         lname.turtle_r1c2: LData(LType.loc, loc_type=LocType.enemy),
-        lname.faceleft_r1c10: LData(LType.loc, loc_type=LocType.enemy),
-        lname.seal_r3c10: LData(LType.loc, loc_type=LocType.enemy),
 
         lname.spikeseal_r2c10: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
 
         rname.tunnel: LData(LType.region),
+        rname.up_left_door: LData(LType.region, [[iname.key]]),
+    },
+
+    rname.up_left_door: {
+        lname.star_r1c10_4: LData(LType.loc, loc_type=LocType.star),
+        lname.star_r2c10_11: LData(LType.loc, loc_type=LocType.star),
+        lname.star_r3c10_23: LData(LType.loc, loc_type=LocType.star),
+
+        lname.faceleft_r1c10: LData(LType.loc, loc_type=LocType.enemy),
+        lname.seal_r3c10: LData(LType.loc, loc_type=LocType.enemy),
+
+        rname.up_left: LData(LType.region),
     },
 
     rname.r_pack: {
@@ -296,13 +303,13 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
     },
 
     rname.the_door: {
-        lname.rocket_upg_chest: LData(LType.loc, loc_type=LocType.chest),
+        lname.rocket_upg_chest: LData(LType.loc, [[iname.key]], LocType.chest),
 
         lname.star_r3c8_19: LData(LType.loc, loc_type=LocType.star),
         lname.star_r3c7_18: LData(LType.loc, loc_type=LocType.star),
         lname.star_r2c6_14: LData(LType.loc, loc_type=LocType.star),
         lname.star_r2c9_10: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r3c11_17: LData(LType.loc, [[iname.m_jump]], LocType.star),
+        lname.star_r3c11_17: LData(LType.loc, [[iname.m_jump, iname.key]], LocType.star),
 
         lname.mushroom_r3c6: LData(LType.loc, loc_type=LocType.enemy),
         lname.fakeblock_r2c6: LData(LType.loc, loc_type=LocType.enemy),
@@ -328,9 +335,9 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.star_r2c4_15: LData(LType.loc, loc_type=LocType.star),
         lname.star_r1c4_7: LData(LType.loc, loc_type=LocType.star),
         lname.star_r1c5_3: LData(LType.loc, loc_type=LocType.star),
-        lname.star_r1c1_5: LData(LType.loc, loc_type=LocType.star),
+        lname.star_r1c1_5: LData(LType.loc, [[iname.key]], LocType.star),
 
-        lname.fish_r1c1: LData(LType.loc, loc_type=LocType.enemy),
+        lname.fish_r1c1: LData(LType.loc, [[iname.key]], LocType.enemy),
         lname.faceleft_r1c5: LData(LType.loc, loc_type=LocType.enemy),
         lname.eye_r2c4: LData(LType.loc, loc_type=LocType.enemy),
         lname.turtle_r3c4: LData(LType.loc, loc_type=LocType.enemy),

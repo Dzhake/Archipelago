@@ -268,6 +268,7 @@ class RegionNames(str, Enum):
 
     tunnel="Tunnel"
     up_left="Up left"
+    up_left_door="Up left door"
     up_mid_l="Up mid left"
     up_mid_l_top="Up mid left top"
     up_mid="Up mid"

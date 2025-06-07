@@ -40,7 +40,7 @@ The goal is the same as the vanilla game. Get 99 stars and 99 kills (NOT kill 99
 You collect the item how it looks in Insomnia, and get message that your item was sent to another world.
 
 ## Is there a tracker?
-There's a tracker for stars and kills count. Not for equipment or fans switch.
+You can always see your stars and kills count in top left and top right corners, and you can see icons of the items you've collected in pause menu. Also, if you have fans enabled, there will be fan icon in pause menu.
 
 ## What should I know regarding logic?
 The game might require to do some insane tricks with lubricant, the best item in the game : )  
