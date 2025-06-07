@@ -14,8 +14,10 @@ class InsomniaItemData(NamedTuple):
     quantity_in_item_pool: int  # put 0 for things not in the pool by default
     item_group: str = ""
 
+def fix_item_table(item_table: Dict[iname, InsomniaItemData]) -> Dict[str, InsomniaItemData]:
+    return {str(key): value for key, value in item_table.items()}
 
-item_table: Dict[str, InsomniaItemData] = {
+item_table: Dict[str, InsomniaItemData] = fix_item_table({
     iname.boots: InsomniaItemData(IClass.progression | IClass.useful, 1, "Equipment"),
     iname.helmet: InsomniaItemData(IClass.progression | IClass.useful, 1, "Equipment"),
     iname.key: InsomniaItemData(IClass.progression | IClass.useful, 1, "Equipment"),
@@ -32,7 +34,7 @@ item_table: Dict[str, InsomniaItemData] = {
     iname.fans: InsomniaItemData(IClass.progression | IClass.useful, 1, "FansSwitch"),
     iname.star: InsomniaItemData(IClass.progression, 99, "Star"),
     iname.kill: InsomniaItemData(IClass.progression, 99, "Kill"),
-}
+})
 
 item_name_to_id: Dict[str, int] = {key: idx + 1 for idx, key in enumerate(item_table)}
 

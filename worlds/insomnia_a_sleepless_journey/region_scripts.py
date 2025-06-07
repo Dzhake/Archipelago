@@ -36,8 +36,7 @@ def create_insomnia_regions(world: "InsomniaWorld") -> Dict[str, Region]:
 # basically any(all(individual requirements))
 def interpret_rule(reqs: List[List[str]], world: "InsomniaWorld") -> CollectionRule:
     # expand the helpers into individual items
-    for helper_name in helper_reference.keys():
-        convert_helper_reqs(reqs)
+    convert_helper_reqs(reqs)
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
 
 

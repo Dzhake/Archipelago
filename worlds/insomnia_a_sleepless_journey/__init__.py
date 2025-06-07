@@ -8,6 +8,7 @@ from .region_data import LData
 from .region_scripts import create_regions_and_set_rules
 from .items import item_name_to_id, item_table, item_name_groups, filler_items, InsomniaItem
 from .region_data import traversal_requirements
+from .locations import location_name_to_id
 
 # All the files are pretty much copypasta from https://github.com/ScipioWright/Archipelago-SW/blob/animal-well/worlds/animal_well/__init__.py
 
@@ -31,7 +32,7 @@ class InsomniaWorld(World):
 
     item_name_groups = item_name_groups
     item_name_to_id = item_name_to_id
-    location_name_to_id = {key: idx + 1 for idx, key in enumerate(LocationNames)}
+    location_name_to_id = location_name_to_id
 
     origin_region_name = "Main region"
 
