@@ -30,13 +30,13 @@ item_table: Dict[str, InsomniaItemData] = {
     iname.map: InsomniaItemData(IClass.useful, 1, "Equipment"),
     iname.brain: InsomniaItemData(IClass.useful, 1, "Equipment"),
     iname.fans: InsomniaItemData(IClass.progression | IClass.useful, 1, "FansSwitch"),
-    iname.star: InsomniaItemData(IClass.progression | IClass.filler, 99, "Star"),
-    iname.kill: InsomniaItemData(IClass.progression | IClass.filler, 99, "Kill"),
+    iname.star: InsomniaItemData(IClass.progression, 99, "Star"),
+    iname.kill: InsomniaItemData(IClass.progression, 99, "Kill"),
 }
 
 item_name_to_id: Dict[str, int] = {key: idx + 1 for idx, key in enumerate(item_table)}
 
-filler_items: List[str] = [name for name, data in item_table.items() if data.classification == IClass.filler]
+filler_items: List[str] = [iname.star, iname.kill]
 
 
 def get_item_group(item_name: str) -> str:
