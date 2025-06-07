@@ -64,10 +64,11 @@ def create_regions_and_set_rules(world: "InsomniaWorld") -> None:
 
             if data.type == LType.loc:
                 location = ILocation(player, destination_name, world.location_name_to_id[destination_name], iregions[origin_name])
-                location.access_rule = interpret_rule(data.rules, world)
+                #location.access_rule = interpret_rule(data.rules, world)
                 iregions[origin_name].locations.append(location)
             elif data.type == LType.region:
-                iregions[origin_name].connect(connecting_region=iregions[destination_name], rule=interpret_rule(data.rules, world))
+                iregions[origin_name].connect(connecting_region=iregions[destination_name])
+                #rule=interpret_rule(data.rules, world)
 
 
     for region in iregions.values():

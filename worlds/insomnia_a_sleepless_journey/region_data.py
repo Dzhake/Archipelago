@@ -95,6 +95,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         rname.near_switch: LData(LType.region, [[iname.m_jump]]),
         rname.basement: LData(LType.region, [[iname.helmet]]),
         rname.heart_chest: LData(LType.region, [[iname.fans], [iname.rocket_upg]]),
+        rname.tennis_chest: LData(LType.region, [[iname.lubricant]]),
     },
 
     rname.below_basement_door_2: {

@@ -285,7 +285,6 @@ class RegionNames(str, Enum):
 
     r_pack="Rocket pack chest region"
     mushroom="Mushroom chest region"
-    after_mushroom="Post mushroom chest"
     after_lubricant="Post lubricant chest"
     heart_chest="Heart chest region"
     glove_chest="Glove chest region"
