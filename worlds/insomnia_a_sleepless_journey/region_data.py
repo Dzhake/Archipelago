@@ -107,6 +107,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
         lname.star_r10c11_91: LData(LType.loc, loc_type=LocType.star),
         lname.spiketurtle_r10c11: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
         rname.basement_door: LData(LType.region, [[iname.glove, iname.rocket_upg], [iname.glove, iname.fans]]),
+        rname.below_basement_door_2: LData(LType.region),
     },
 
     rname.basement_door: {
@@ -374,6 +375,8 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], LDat
 
         lname.spinner_r3c1: LData(LType.loc, [[iname.spike_kill]], LocType.enemy),
         lname.faceleft_r9c3: LData(LType.loc, loc_type=LocType.enemy),
+
+        rname.down_l_r: LData(LType.region),
     },
 
     rname.down_l: {

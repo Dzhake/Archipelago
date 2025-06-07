@@ -19,23 +19,11 @@ helper_reference: Dict[str, List[str]] = {
 }
 
 
-def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
-    new_list_storage: List[List[str]] = []
-    for i, sublist in enumerate(reqs):
-        for j, req in enumerate(sublist):
-            if req == helper_name:
-                for replacement in helper_reference[helper_name]:
-                    new_list = sublist.copy()
-                    new_list[j] = replacement
-                    new_list_storage.append(new_list)
-                # replace the starter list with one of the storage lists to keep it from skipping an entry
-                reqs[i] = new_list_storage.pop()
-                break
-
-    for sublist in new_list_storage:
-        reqs.append(sublist)
-
-    return reqs
+def convert_helper_reqs(reqs: List[List[str]]) -> None:
+    for helper_name, replacement in helper_reference.items():
+        for i, sublist in enumerate(reqs):
+            if len(sublist) > 0 and sublist[0] == helper_name:
+                reqs[i] = replacement
 
 
 def create_insomnia_regions(world: "InsomniaWorld") -> Dict[str, Region]:
@@ -49,7 +37,7 @@ def create_insomnia_regions(world: "InsomniaWorld") -> Dict[str, Region]:
 def interpret_rule(reqs: List[List[str]], world: "InsomniaWorld") -> CollectionRule:
     # expand the helpers into individual items
     for helper_name in helper_reference.keys():
-        reqs = convert_helper_reqs(helper_name, reqs)
+        convert_helper_reqs(reqs)
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
 
 
@@ -64,12 +52,11 @@ def create_regions_and_set_rules(world: "InsomniaWorld") -> None:
 
             if data.type == LType.loc:
                 location = ILocation(player, destination_name, world.location_name_to_id[destination_name], iregions[origin_name])
-                #location.access_rule = interpret_rule(data.rules, world)
+                location.access_rule = interpret_rule(data.rules, world)
                 iregions[origin_name].locations.append(location)
             elif data.type == LType.region:
-                iregions[origin_name].connect(connecting_region=iregions[destination_name])
-                #rule=interpret_rule(data.rules, world)
-
+                iregions[origin_name].connect(connecting_region=iregions[destination_name], rule=interpret_rule(data.rules, world))
+                
 
     for region in iregions.values():
         world.multiworld.regions.append(region)

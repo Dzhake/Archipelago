@@ -1,6 +1,7 @@
 from copy import deepcopy
 from typing import Dict, List, Union
 from BaseClasses import Tutorial
+from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 from .names import LocationNames, RegionNames
 from .region_data import LData
@@ -35,6 +36,10 @@ class InsomniaWorld(World):
     origin_region_name = "Main region"
 
     traversal_requirements: Dict[Union[LocationNames, RegionNames], Dict[Union[LocationNames, RegionNames], LData]]
+
+
+    def pre_fill(self):
+        visualize_regions(self.get_region("Main region"), "insomnia map.puml")
 
     def create_item(self, name: str) -> InsomniaItem:
         item_data = item_table[name]
